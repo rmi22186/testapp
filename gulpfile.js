@@ -3,8 +3,25 @@ var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var nodemon = require('gulp-nodemon');
 var sass = require('gulp-sass');
+var bower = require('gulp-bower');
 
- 
+var config = {
+  sassPath: './resources/sass',
+  bowerDir: './bower_components',
+  // fontawesome: config.bowerDir + 'fontawesome'
+};
+
+// gulp.task('bower', function() {
+//   return bower()
+//     .pipe(gulp.dest(config.bowerDir));
+// });
+
+// gulp.task('icons', function() {
+//   return gulp.src(config.bowerDir + '/fontawesome/fonts/**.*)'
+//     .pipe(gulp.dest('./public/fonts'))
+//   );
+// });
+
 gulp.task('browser-sync', ['nodemon'], function() {
   browserSync({
     proxy: "localhost:3000",  // local node app address
@@ -35,7 +52,6 @@ gulp.task('nodemon', function (cb) {
   });
 });
  
-
 gulp.task('sass', function () {
   gulp.src('./sass/**/*.scss')
     .pipe(sass().on('error', sass.logError))
