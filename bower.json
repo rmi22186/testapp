@@ -1,0 +1,20 @@
+{
+  "name": "910cherrystreet",
+  "version": "0.0.1",
+  "authors": [
+    "Robert Ing <rmi22186@gmail.com>"
+  ],
+  "main": "app.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "materialize": null,
+    "components-font-awesome": "~4.3.0"
+  }
+}
