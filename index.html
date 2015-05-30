@@ -6,10 +6,18 @@
   <title>910 Cherry Street</title>
 
   <!-- START CSS  -->
-  <link rel="stylesheet" href="public/css/materialize.min.css" type="text/css" media="screen,projection"/>
-  <link rel="stylesheet" href="public/css/style.css" type="text/css" media="screen,projection"/>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css" type="text/css" media="screen,projection"/>
   <link rel="stylesheet" href="public/css/lightGallery.css">
-  <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="public/css/style.css" type="text/css" media="screen,projection"/>
+
+  <!-- <link rel="stylesheet" href="public/css/lightGallery.css">
+  <link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.css" type="text/css" media="screen,projection"/>
+  <link rel="stylesheet" href="public/css/font-awesome.min.css">
+  <link rel="stylesheet" href="public/css/style.css" type="text/css" media="screen,projection"/>
+  --> 
+
   <!-- END CSS -->
 </head>
 <body>
@@ -60,19 +68,16 @@
           <a href="#contact" id="download-button" class="btn-large sea-green">Contact Us</a>
         </div>
         <br><br>
-
       </div>
     </div>
     <div class="parallax tint main-parallax"><img class='opacity' src="/assets/parallax-images/apartment.jpg" alt="Unsplashed background img 2"></div>
   </div>
 <!-- END HERO -->
-
+<!-- START ROOMS -->
 <div class="row first-row">
   <div class="container">
     <div class="section">
     <a name="rooms"></a>
-
-      <!--   Icon Section   -->
       <div class="row center">
         <h3><i class="large mdi-action-home sea-green-text"></i></h3>
           <h4>Our Rooms</h4>
@@ -122,7 +127,8 @@
     </div>
     <div class="parallax">  <img src="assets/parallax-images/room.jpg" alt="Unsplashed background img 2"></div>
   </div>
-
+<!-- END ROOMS -->
+<!-- START IMAGE GALLERY -->
 <div class="container">
     <div class="section">
 
@@ -158,6 +164,7 @@
       </div>
     </div>
 </div>
+<!-- END IMAGE GALLERY -->
 
 <!-- NEIGHBORHOOD START -->
 <a name='neighborhood'></a>
@@ -178,6 +185,8 @@
   <div class="col-md-12 heading text-center" id="map-container">
     <iframe id="map" class="scrolloff" src="https://www.google.com/maps/d/u/0/embed?mid=zJW3tZl22UoM.kJjrT3N7Z63c&z=16" width="100%" height="500" frameborder="1" style="border:0"></iframe>
   </div>
+<!-- NEIGHBORHOOD END -->
+<!-- CONTACT START -->
 
   <a name='contact'></a>
   <div class="container">
@@ -208,8 +217,9 @@
         </div>  
       </div>
     </div>
-
   </div>
+
+<!-- CONTACT END -->
 
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
@@ -222,49 +232,11 @@
     <div class="parallax"><img src="assets/parallax-images/skyline.jpg" alt="Unsplashed background img 3"></div>
   </div>
 
-  <!-- <footer class="page-footer teal">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
-
-
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-      Made by <a class=" text-lighten-3" href="http://materializecss.com">Materialize</a>
-      </div>
-    </div>
-  </footer> -->
-  
-
   <!--  Scripts -->
-  <script src="public/js/jquery.min.js"></script>
+  <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="public/js/lightGallery.min.js"></script>
-  <script src="public/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
   <script src="public/js/init.js"></script>
-  <!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script> -->
   <!--  End Scripts -->
   </body>
 </html>
