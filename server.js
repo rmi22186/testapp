@@ -12,4 +12,4 @@ var server = app.listen(process.env.PORT || 3000, function() {
 
 setInterval(function() {
     http.get("http://cherrystreet.herokuapp.com");
-}, 5000); 
+}, 300000); 
