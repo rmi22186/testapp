@@ -5,7 +5,8 @@
   "main": "server.js",
   "dependencies": {
     "browser-sync": "^2.7.6",
-    "express": "^4.12.4"
+    "express": "^4.12.4",
+    "newrelic": "^1.19.2"
   },
   "devDependencies": {
     "gulp": "^3.8.11",
