@@ -4,9 +4,15 @@ var reload = browserSync.reload;
 var nodemon = require('gulp-nodemon');
 var sass = require('gulp-sass');
 var bower = require('gulp-bower');
+var rename = require('gulp-rename');
+var minifyCss = require('gulp-minify-css');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+
 
 var config = {
-  sassPath: './resources/sass',
+  js: 'dev/js/*.js',
+  sassPath: './sass',
   bowerDir: './bower_components',
   // fontawesome: config.bowerDir + 'fontawesome'
 };
@@ -28,6 +34,13 @@ gulp.task('browser-sync', ['nodemon'], function() {
     port: 5000,  // use *different* port than above
     notify: true
   });
+});
+
+gulp.task('uglifyjs', function() {
+  gulp.src(config.js)
+  .pipe(uglify())
+  .pipe(rename('init.min.js'))
+  .pipe(gulp.dest('public/js/'));
 });
  
 gulp.task('nodemon', function (cb) {
@@ -52,17 +65,23 @@ gulp.task('nodemon', function (cb) {
   });
 });
  
-gulp.task('sass', function () {
-  gulp.src('./sass/**/*.scss')
+gulp.task('compile-sass', function () {
+  gulp.src('./dev/scss/**/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./css'));
+    .pipe(gulp.dest('./dev/css'));
+});
+
+gulp.task('concat-css', ['compile-sass'], function () {
+  gulp.src('./dev/css/**/*.css')
+    .pipe(concat('styles.min.css'))
+    .pipe(minifyCss())
+    .pipe(gulp.dest('public/css'));
 });
 
 gulp.task('sass:watch', function () {
-  gulp.watch('./sass/**/*.scss', ['sass']);
+  gulp.watch('./dev/scss/**/*.scss', ['concat-css'], reload);
 });
 
-
-gulp.task('default', ['browser-sync'], function () {
-  gulp.watch(['index.html', 'public/css/style.css'], reload);
+gulp.task('default', ['browser-sync','uglifyjs','concat-css', 'sass:watch'], function () {
+  gulp.watch(['index.html', 'public/css/style.min.css'], reload);
 });
