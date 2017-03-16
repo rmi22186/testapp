@@ -42,7 +42,7 @@ gulp.task('uglifyjs', function() {
   .pipe(rename('init.min.js'))
   .pipe(gulp.dest('public/js/'));
 });
- 
+
 gulp.task('nodemon', function (cb) {
   var called = false;
   return nodemon({
@@ -64,7 +64,7 @@ gulp.task('nodemon', function (cb) {
     }, 1000);
   });
 });
- 
+
 gulp.task('compile-sass', function () {
   gulp.src('./dev/scss/**/*.scss')
     .pipe(sass().on('error', sass.logError))
