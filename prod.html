@@ -3,10 +3,9 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  <title>Test App</title>
+  <title>PROD</title>
   <!-- START CSS  -->
 
-  <link rel="stylesheet" href="public/css/lightGallery.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css" type="text/css" media="screen,projection">
 
@@ -15,10 +14,10 @@
 <body>
 <a id="logo-container" href="#" class="brand-logo">Test App</a>
 <ul>
-<li class="button1"><a href="#"><strong>Button 1</strong></a></li>
-<li class="button2"><a href="#"><strong>Button 2</strong></a></li>
-<li class="button3"><a href="#"><strong>Button 3</strong></a></li>
-<li class="nav-text nav-contact-number"></li>
+    <li class="button1"><a href="#"><strong>Button 1</strong></a></li>
+    <li class="button2"><a href="#"><strong>Button 2</strong></a></li>
+    <li class="button3"><a href="#"><strong>Button 3</strong></a></li>
+    <li class="nav-text nav-contact-number"></li>
 </ul>
   <!--  Scripts -->
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -38,34 +37,13 @@
         };
         var mp = document.createElement('script');
         mp.type = 'text/javascript';
-        mp.async = false;
-        // mp.src = ('https:' == document.location.protocol ? 'https://jssdkcdns' : 'http://jssdkcdn') + '.mparticle.com/js/v1/' + apiKey + '/mparticle.js';
-        mp.src = ('mparticle-sdk-javascript-private/mparticle.js');
-
+        mp.async = true;
+        mp.src = ('https:' == document.location.protocol ? 'https://jssdkcdns' : 'http://jssdkcdn') + '.mparticle.com/js/v1/' + apiKey + '/mparticle.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(mp, s);
-
-        var amp = document.createElement('script');
-        amp.type = 'text/javascript';
-        amp.async = false;
-        amp.src = ('Integrations/integration-amplitude/Amplitude.js');
-
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(amp, s);
-
-        var afterLoadScripts = document.createElement('script');
-        afterLoadScripts.type = 'text/javascript';
-        afterLoadScripts.async = false;
-        afterLoadScripts.src = ('afterLoadingScripts.js');
-
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(afterLoadScripts, s);
-    })();
+    })('e9ea8a9ba0c5bd48828e4cac23be681b');
     </script>
 
-    <script>
-
-    </script>
     <script>
         $('.button1').click(function(){
             console.log('button 1');

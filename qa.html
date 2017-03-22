@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>QA</title>
+  <!-- START CSS  -->
+
+  <style>
+  .button1 {
+      background-color: blue;
+  }
+  .button2 {
+      background-color: green;
+  }
+  .button3 {
+      background-color: yellow;
+  }
+  .button4 {
+      background-color: orange;
+  }
+  .button5 {
+      background-color: red;
+  }
+  .button6 {
+      background-color: purple;
+  }
+  .button7 {
+      background-color: white;
+  }
+  </style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css" type="text/css" media="screen,projection">
+
+  <!-- END CSS -->
+</head>
+<body>
+<a id="logo-container" href="#" class="brand-logo">Test App</a>
+<ul>
+<li><a href="#"><button class="button1"><p>Log Page View</p></button></a></li>
+<li><a href="#"><button class="button2"><p>Log Transaction</p></button></a></li>
+<li><a href="#"><button class="button3"><p>Log Commerce</p></button></a></li>
+<li><a href="#"><button class="button4"><p>Log Page Event</p></button></a></li>
+<br>
+<li><a href="#"><button class="button5"><p>SetUserID</p></button></a></li>
+<li><a href="#"><button class="button6"><p>SetUserProperty</p></button></a></li>
+<br>
+<li><a href="#"><button class="button7"><p>SetOptOut</p></button></a></li>
+<li><a href="#"><button class="button7"><p>SetOptIn</p></button></a></li>
+<li class="nav-text nav-contact-number"></li>
+
+</ul>
+  <!--  Scripts -->
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript">
+      window.mParticle = {
+          config: {
+            isSandbox: true,
+            isDebug: true
+          }
+      };
+      (function (apiKey) {
+        window.mParticle = window.mParticle || {};
+        window.mParticle.config = window.mParticle.config || {};
+        window.mParticle.config.rq = [];
+        window.mParticle.ready = function (f) {
+            window.mParticle.config.rq.push(f);
+        };
+        var mp = document.createElement('script');
+        mp.type = 'text/javascript';
+        mp.async = false;
+        mp.src = ('mparticle-sdk-javascript-private/mparticle.js');
+
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(mp, s);
+
+        var amp = document.createElement('script');
+        amp.type = 'text/javascript';
+        amp.async = false;
+        amp.src = ('Integrations/integration-amplitude/Amplitude.js');
+
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(amp, s);
+
+        var afterLoadingScripts = document.createElement('script');
+        afterLoadingScripts.type = 'text/javascript';
+        afterLoadingScripts.async = false;
+        afterLoadingScripts.src = ('afterLoadingScripts.js');
+
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(afterLoadingScripts, s);
+    })();
+    </script>
+
+    <script>
+        $('.button1').click(function(){
+            console.log('Attempt to Log Page View');
+              mParticle.logEvent('Log Page View',
+                                 mParticle.EventType.Navigation,
+                                 {
+                                     button_number:1,
+                                     color:'blue'
+                                 }
+                             );
+        });
+
+        $('.button2').click(function(){
+            console.log('Attempt to Log Transaction');
+              mParticle.logEvent('Log Transaction',
+                                 mParticle.EventType.Transaction,
+                                 {'cost':300,'productId':'abc123'});
+        });
+
+        $('.button3').click(function(){
+            console.log('Attempt to Log Commerce');
+              mParticle.logEvent('Log Commerce',
+                                 mParticle.EventType.Commerce,
+                                 {
+                                     button_number: 3,
+                                     color:'yellow'
+                                 }
+                             );
+        });
+
+        $('.button4').click(function(){
+            console.log('Attempt to Log PageEvent');
+              mParticle.logEvent('Log Page Event',
+                                 mParticle.EventType.PageEvent,
+                                {
+                                     button_number: 4,
+                                     color:'teal'
+                                 }
+                             );
+        });
+
+        $('.button5').click(function(){
+            console.log('Set User Property');
+              mParticle.setUserIdentity(123123, 1);
+        });
+
+        $('.button6').click(function(){
+            console.log('Set User Property');
+              mParticle.setUserAttribute('longitude', 15);
+        });
+
+        $('.button7').click(function(){
+            console.log('Set opt out');
+              mParticle.setOptOut(true);
+        });
+        $('.button8').click(function(){
+            console.log('Set opt in');
+              mParticle.setOptOut(false);
+        });
+  </script>
+</html>
