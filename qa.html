@@ -42,11 +42,12 @@
 <li><a href="#"><button class="button3"><p>Log Commerce</p></button></a></li>
 <li><a href="#"><button class="button4"><p>Log Page Event</p></button></a></li>
 <br>
-<li><a href="#"><button class="button5"><p>SetUserID</p></button></a></li>
-<li><a href="#"><button class="button6"><p>SetUserProperty</p></button></a></li>
+<li><a href="#"><button class="button5"><p>SetUserID to 123123</p></button></a></li>
+<li><a href="#"><button class="button6"><p>SetUserID to abcd</p></button></a></li>
+<li><a href="#"><button class="button7"><p>SetUserProperty</p></button></a></li>
 <br>
-<li><a href="#"><button class="button7"><p>SetOptOut</p></button></a></li>
-<li><a href="#"><button class="button7"><p>SetOptIn</p></button></a></li>
+<li><a href="#"><button class="button8"><p>SetOptOut</p></button></a></li>
+<li><a href="#"><button class="button9"><p>SetOptIn</p></button></a></li>
 <li class="nav-text nav-contact-number"></li>
 
 </ul>
@@ -74,14 +75,25 @@
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(mp, s);
 
+        // *******AMPLITUDE INTEGRATION*******
+        // var amp = document.createElement('script');
+        // amp.type = 'text/javascript';
+        // amp.async = false;
+        // amp.src = ('Integrations/integration-amplitude/Amplitude.js');
+        //
+        // var s = document.getElementsByTagName('script')[0];
+        // s.parentNode.insertBefore(amp, s);
+
+        // *******APPBOY INTEGRATION*******
         var amp = document.createElement('script');
         amp.type = 'text/javascript';
         amp.async = false;
-        amp.src = ('Integrations/integration-amplitude/Amplitude.js');
+        amp.src = ('Integrations/integration-appboy/AppboyKit.js');
 
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(amp, s);
 
+        // **********AFTERLOADING SCRIPTS (configureForwarder & init) **********//
         var afterLoadingScripts = document.createElement('script');
         afterLoadingScripts.type = 'text/javascript';
         afterLoadingScripts.async = false;
@@ -95,13 +107,7 @@
     <script>
         $('.button1').click(function(){
             console.log('Attempt to Log Page View');
-              mParticle.logEvent('Log Page View',
-                                 mParticle.EventType.Navigation,
-                                 {
-                                     button_number:1,
-                                     color:'blue'
-                                 }
-                             );
+              mParticle.logPageView();
         });
 
         $('.button2').click(function(){
@@ -113,13 +119,8 @@
 
         $('.button3').click(function(){
             console.log('Attempt to Log Commerce');
-              mParticle.logEvent('Log Commerce',
-                                 mParticle.EventType.Commerce,
-                                 {
-                                     button_number: 3,
-                                     color:'yellow'
-                                 }
-                             );
+            var commerceTransactionAttributes = mParticle.eCommerce.createTransactionAttributes('id1', 'affiliation1', 'couponcode123, 300');
+              mParticle.eCommerce.logPurchase(commerceTransactionAttributes);
         });
 
         $('.button4').click(function(){
@@ -140,14 +141,19 @@
 
         $('.button6').click(function(){
             console.log('Set User Property');
-              mParticle.setUserAttribute('longitude', 15);
+              mParticle.setUserIdentity('abcd', 1);
         });
 
         $('.button7').click(function(){
+            console.log('Set User Property');
+              mParticle.setUserAttribute('longitude', 15);
+        });
+
+        $('.button8').click(function(){
             console.log('Set opt out');
               mParticle.setOptOut(true);
         });
-        $('.button8').click(function(){
+        $('.button9').click(function(){
             console.log('Set opt in');
               mParticle.setOptOut(false);
         });
