@@ -2,3 +2,5 @@ assets/rooms/originals/
 node_modules/
 bower_components/
 dev/
+Integrations/
+mparticle-sdk-javascript/

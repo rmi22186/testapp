@@ -7,155 +7,292 @@
   <!-- START CSS  -->
 
   <style>
-  .button1 {
-      background-color: blue;
-  }
-  .button2 {
-      background-color: green;
-  }
-  .button3 {
-      background-color: yellow;
-  }
-  .button4 {
-      background-color: orange;
-  }
-  .button5 {
-      background-color: red;
-  }
-  .button6 {
-      background-color: purple;
-  }
-  .button7 {
-      background-color: white;
-  }
+      .button1 {
+          background-color: blue;
+      }
+      .button2 {
+          background-color: green;
+      }
+      .button3 {
+          background-color: yellow;
+      }
+      .button4 {
+          background-color: orange;
+      }
+      .button5 {
+          background-color: red;
+      }
+      .button6 {
+          background-color: purple;
+      }
+      .button7 {
+          background-color: white;
+      }
   </style>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css" type="text/css" media="screen,projection">
-
   <!-- END CSS -->
-</head>
-<body>
-<a id="logo-container" href="#" class="brand-logo">Test App</a>
-<ul>
-<li><a href="#"><button class="button1"><p>Log Page View</p></button></a></li>
-<li><a href="#"><button class="button2"><p>Log Transaction</p></button></a></li>
-<li><a href="#"><button class="button3"><p>Log Commerce</p></button></a></li>
-<li><a href="#"><button class="button4"><p>Log Page Event</p></button></a></li>
-<br>
-<li><a href="#"><button class="button5"><p>SetUserID to 123123</p></button></a></li>
-<li><a href="#"><button class="button6"><p>SetUserID to abcd</p></button></a></li>
-<li><a href="#"><button class="button7"><p>SetUserProperty</p></button></a></li>
-<br>
-<li><a href="#"><button class="button8"><p>SetOptOut</p></button></a></li>
-<li><a href="#"><button class="button9"><p>SetOptIn</p></button></a></li>
-<li class="nav-text nav-contact-number"></li>
 
-</ul>
-  <!--  Scripts -->
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
   <script type="text/javascript">
       window.mParticle = {
           config: {
             isSandbox: true,
-            isDebug: true
+            isDebug: true,
+            isDevelopmentMode: true
           }
       };
       (function (apiKey) {
-        window.mParticle = window.mParticle || {};
-        window.mParticle.config = window.mParticle.config || {};
-        window.mParticle.config.rq = [];
-        window.mParticle.ready = function (f) {
-            window.mParticle.config.rq.push(f);
-        };
-        var mp = document.createElement('script');
-        mp.type = 'text/javascript';
-        mp.async = false;
-        mp.src = ('mparticle-sdk-javascript-private/public/mparticle-min.js');
+          window.mParticle = window.mParticle || {};
+          window.mParticle.config = window.mParticle.config || {};
+          window.mParticle.config.rq = [];
+          window.mParticle.ready = function (f) {
+              window.mParticle.config.rq.push(f);
+          };
+          var mp = document.createElement('script');
+          mp.type = 'text/javascript';
+          mp.async = false;
+        //   mp.src = 'https://jssdkcdns.mparticle.com/js/v1/' + apiKey + '/mparticle.js'
+        //   mp.src = 'https://jssdk-qa.mparticle.com/js/v1/' + apiKey + '/mparticle.js'
+          mp.src = './mparticle-sdk-javascript-private/mparticle.js'
 
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(mp, s);
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(mp, s);
 
-        // *******AMPLITUDE INTEGRATION*******
+        // // // *******AMPLITUDE INTEGRATION*******
         // var amp = document.createElement('script');
         // amp.type = 'text/javascript';
         // amp.async = false;
         // amp.src = ('Integrations/integration-amplitude/Amplitude.js');
+        // //
+        // var s = document.getElementsByTagName('script')[0];
+        // s.parentNode.insertBefore(amp, s);
+
+        // // // *******APPBOY INTEGRATION*******
+        // var amp = document.createElement('script');
+        // amp.type = 'text/javascript';
+        // amp.async = false;
+        // amp.src = ('Integrations/integration-appboy/AppboyKit.js');
         //
         // var s = document.getElementsByTagName('script')[0];
         // s.parentNode.insertBefore(amp, s);
 
-        // *******APPBOY INTEGRATION*******
-        var amp = document.createElement('script');
-        amp.type = 'text/javascript';
-        amp.async = false;
-        amp.src = ('Integrations/integration-appboy/AppboyKit.js');
+        // // *******Google Analytics INTEGRATION*******
+        // var amp = document.createElement('script');
+        // amp.type = 'text/javascript';
+        // amp.async = false;
+        // amp.src = ('Integrations/integration-google-analytics/GoogleAnalyticsEventForwarder.js');
+        //
+        // var s = document.getElementsByTagName('script')[0];
+        // s.parentNode.insertBefore(amp, s);
 
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(amp, s);
+        // *******LeanPlum INTEGRATION*******
+        // var amp = document.createElement('script');
+        // amp.type = 'text/javascript';
+        // amp.async = false;
+        // amp.src = ('Integrations/integration-leanplum/LeanplumAnalyticsEventForwarder.js');
+        //
+        // var s = document.getElementsByTagName('script')[0];
+        // s.parentNode.insertBefore(amp, s);
 
-        // **********AFTERLOADING SCRIPTS (configureForwarder & init) **********//
+        // // **********AFTERLOADING SCRIPTS (configureForwarder & init) **********//
         var afterLoadingScripts = document.createElement('script');
         afterLoadingScripts.type = 'text/javascript';
         afterLoadingScripts.async = false;
         afterLoadingScripts.src = ('afterLoadingScripts.js');
-
+        //
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(afterLoadingScripts, s);
+    //qa - particlebox
+    // })('e001b2b2eb5da649a42c633563135de1');
     })();
     </script>
 
-    <script>
-        $('.button1').click(function(){
-            console.log('Attempt to Log Page View');
-              mParticle.logPageView();
-        });
+</head>
+<body>
+<a id="logo-container" href="#" class="brand-logo">Test App</a>
+<ul>
+    PAGE VIEWS
+    <li><a href="#"><button class="page-view-button-1"><p>mParticle.logPageView("ScreenName", {custom: "attribute"}, {
+        "Lotame.Interest": "top-40-music",
+        "Google.Value": "test1",
+        "Google.Label": "test2",
+    })</p></button></a></li>
+    <li><a href="#"><button class="page-view-button-2"><p>mParticle.logPageView()</p></button></a></li>
 
-        $('.button2').click(function(){
-            console.log('Attempt to Log Transaction');
-              mParticle.logEvent('Log Transaction',
-                                 mParticle.EventType.Transaction,
-                                 {'cost':300,'productId':'abc123'});
-        });
+    <li><a href="#"><button class="button2"><p>Log Transaction</p></button></a></li>
+    <li><a href="#"><button class="button3"><p>Log Commerce</p></button></a></li>
+    <li><a href="#"><button class="button4"><p>Log Page Event</p></button></a></li>
+    <br>
+    <li><a href="#"><button class="button5"><p>SetUserID to 123123</p></button></a></li>
+    <li><a href="#"><button class="button6"><p>SetUserID to abcd</p></button></a></li>
+    <li><a href="#"><button class="button7"><p>SetUserProperty</p></button></a></li>
+    <br>
+    <li><a href="#"><button class="button8"><p>SetOptOut</p></button></a></li>
+    <li><a href="#"><button class="button9"><p>SetOptIn</p></button></a></li>
+    <li><a href="#"><button class="button10"><p>10</p></button></a></li>
+    <li><a href="#"><button class="button11"><p>11</p></button></a></li>
+    <li><a href="#"><button class="button12"><p>SetUserID to button 12</p></button></a></li>
+    <!-- <li>
+        logEcommerceTransaction
+        <li>productName - <input placeholder="productName" class="logEcommerceTransaction-productName"></input></li>
+        <li>productSKU - <input placeholder="productSKU" class="logEcommerceTransaction-productSKU"></input></li>
+        <li>productUnitPrice - <input placeholder="productUnitPrice" class="logEcommerceTransaction-productUnitPrice"></input></li>
+        <li>productQuantity - <input placeholder="productQuantity" class="logEcommerceTransaction-productQuantity"></input></li>
+        <li>productCategory - <input placeholder="productCategory" class="logEcommerceTransaction-productCategory"></input></li>
+        <li>revenueAmount - <input placeholder="revenueAmount" class="logEcommerceTransaction-revenueAmount"></input></li>
+        <li>taxAmount - <input placeholder="taxAmount" class="logEcommerceTransaction-taxAmount"></input></li>
+        <li>shippingAmount - <input placeholder="shippingAmount" class="logEcommerceTransaction-shippingAmount"></input></li>
+        <li>currencyCode - <input placeholder="currencyCode" class="logEcommerceTransaction-currencyCode"></input></li>
+        <li>affiliation - <input placeholder="affiliation" class="logEcommerceTransaction-affiliation"></input></li>
+        <li>transactionId - <input placeholder="transactionId" class="logEcommerceTransaction-transactionId"></input></li>
+        <li><a href="#"><button class="logEcommerceTransaction"><p>logEcommerceTransaction</p></button></a></li>
+    </li>
+    <li>
+        createProduct
+        <li>productName - <input placeholder="productName" class="createProduct-productName"></input></li>
+        <li>productSKU - <input placeholder="productSKU" class="createProduct-productSKU"></input></li>
+        <li>productUnitPrice - <input placeholder="productUnitPrice" class="createProduct-productUnitPrice"></input></li>
+        <li>productQuantity - <input placeholder="productQuantity" class="createProduct-productQuantity"></input></li>
+        <li>productCategory - <input placeholder="productBrand" class="createProduct-productBrand"></input></li>
+        <li>productCategory - <input placeholder="productVariant" class="createProduct-productVariant"></input></li>
+        <li>productCategory - <input placeholder="productCategory" class="createProduct-productCategory"></input></li>
+        <li>revenueAmount - <input placeholder="position" class="createProduct-position"></input></li>
+        <li>taxAmount - <input placeholder="couponCode" class="createProduct-couponCode"></input></li>
+        <li>shippingAmount - <input placeholder="attributes" class="createProduct-attributes"></input></li>
+        <li><a href="#"><button class="createProduct"><p>createProduct</p></button></a></li>
+    </li> -->
+    <li class="nav-text nav-contact-number"></li>
+</ul>
+  <!--  Scripts -->
+</body>
+<script>
+    var products = [];;
+    $('.page-view-button-1').click(function(){
+          mParticle.logPageView("ScreenName", {custom: "attribute"}, {
+              "Lotame.Interest": "top-40-music",
+              "Google.Value": "test1",
+              "Google.Label": "test2",
+          })
+    });
+    $('.page-view-button-2').click(function(){
+          mParticle.logPageView();
+    });
+    $('.button2').click(function(){
+        console.log('Attempt to Log Transaction');
+          mParticle.logEvent('Log blargh',
+                             mParticle.EventType.Transaction,
+                             {'cost':300,'productId':'abc123'});
+    });
+    $('.button3').click(function(){
+        console.log('Attempt to Log Commerce');
+        var product1 = mParticle.eCommerce.createProduct('iPhone',
+            '12345',
+            '1000',
+            2,
+            'Apple',
+            'Plus',
+            'Phones',
+            1,
+            'my-coupon-code',
+            { customkey: 'customvalue' }),
+            transactionAttributes = mParticle.eCommerce.createTransactionAttributes('12345',
+                'test-affiliation',
+                'coupon-code',
+                44334,
+                600,
+                200);
 
-        $('.button3').click(function(){
-            console.log('Attempt to Log Commerce');
-            var commerceTransactionAttributes = mParticle.eCommerce.createTransactionAttributes('id1', 'affiliation1', 'couponcode123, 300');
-              mParticle.eCommerce.logPurchase(commerceTransactionAttributes);
-        });
+                var product2 = mParticle.eCommerce.createProduct('android',
+                    '12345',
+                    '400',
+                    2,
+                    'Apple',
+                    'Plus',
+                    'Phones',
+                    1,
+                    'my-coupon-code',
+                    { customkey: 'customvalue' }),
+                    transactionAttributes = mParticle.eCommerce.createTransactionAttributes('12345',
+                        'test-affiliation',
+                        'coupon-code',
+                        44334,
+                        600,
+                        200);
 
-        $('.button4').click(function(){
-            console.log('Attempt to Log PageEvent');
-              mParticle.logEvent('Log Page Event',
-                                 mParticle.EventType.PageEvent,
-                                {
-                                     button_number: 4,
-                                     color:'teal'
-                                 }
-                             );
-        });
-
-        $('.button5').click(function(){
-            console.log('Set User Property');
-              mParticle.setUserIdentity(123123, 1);
-        });
-
-        $('.button6').click(function(){
-            console.log('Set User Property');
-              mParticle.setUserIdentity('abcd', 1);
-        });
-
-        $('.button7').click(function(){
-            console.log('Set User Property');
-              mParticle.setUserAttribute('longitude', 15);
-        });
-
-        $('.button8').click(function(){
-            console.log('Set opt out');
-              mParticle.setOptOut(true);
-        });
-        $('.button9').click(function(){
-            console.log('Set opt in');
-              mParticle.setOptOut(false);
-        });
-  </script>
+        mParticle.eCommerce.logPurchase(transactionAttributes, [product1, product2]);
+    });
+    $('.button4').click(function(){
+        console.log('Attempt to Log PageEvent');
+          mParticle.logEvent('Log Page Event',
+                             mParticle.EventType.PageEvent,
+                            {
+                                 button_number: 4,
+                                 color:'teal'
+                             }
+                         );
+    });
+    $('.button5').click(function(){
+        console.log('Set User Property, 123123');
+          mParticle.setUserIdentity('newone06072017', 1);
+    });
+    $('.button6').click(function(){
+        console.log('Set User Property, abcd');
+          mParticle.setUserIdentity('abcd', 1);
+    });
+    $('.button7').click(function(){
+        console.log('Set User Property');
+          mParticle.setUserAttribute('longitude', 15);
+    });
+    $('.button8').click(function(){
+        console.log('Set opt out');
+          mParticle.setOptOut(true);
+    });
+    $('.button9').click(function(){
+        console.log('Set opt in');
+          mParticle.setOptOut(false);
+    });
+    $('.button10').click(function(){
+        console.log('Set User Property, 2');
+          mParticle.setUserIdentity('whatever', 2);
+    });
+    $('.button11').click(function(){
+        console.log('Set User Property, 3');
+          mParticle.setUserIdentity('button11', 3);
+    });
+    $('.button12').click(function(){
+        console.log('Set User Property, 4');
+          mParticle.setUserIdentity('button 12', 1);
+    });
+    $('.logEcommerceTransaction').click(function(){
+        console.log('Logging Ecommerce Transaction');
+          mParticle.logEcommerceTransaction(
+                $('.logEcommerceTransaction-productName').val(),
+                $('.logEcommerceTransaction-productSKU').val(),
+                $('.logEcommerceTransaction-productUnitPrice').val(),
+                $('.logEcommerceTransaction-productQuantity').val(),
+                $('.logEcommerceTransaction-productCategory').val(),
+                $('.logEcommerceTransaction-revenueAmount').val(),
+                $('.logEcommerceTransaction-taxAmount').val(),
+                $('.logEcommerceTransaction-shippingAmount').val(),
+                $('.logEcommerceTransaction-currencyCode').val(),
+                $('.logEcommerceTransaction-affiliation').val(),
+                $('.logEcommerceTransaction-transactionId').val(),
+          );
+    });
+    $('.createProduct').click(function(){
+        console.log('creating product');
+          product.push(mParticle.eCommerce.createProduct(
+              $('.createProduct-productName').val(),
+              $('.createProduct-productSKU').val(),
+              $('.createProduct-productUnitPrice').val(),
+              $('.createProduct-productQuantity').val(),
+              $('.createProduct-productBrand').val(),
+              $('.createProduct-productVariant').val(),
+              $('.createProduct-productCategory').val(),
+              $('.createProduct-position').val(),
+              $('.createProduct-couponCode').val(),
+              $('.createProduct-attributes').val()
+          ));
+    });
+</script>
 </html>
